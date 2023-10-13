@@ -29,6 +29,3 @@ jobs:
       - name: Get PR variables
         run: echo ${{ context.payload.pull_request.body }}
 
-      # Runs a single command using the runners shell
-      - name: Get PR Payload
-        run: echo context.payload.pull_request.body
