@@ -23,8 +23,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: kt3k/update-pr-description@v2
 
       # Runs a single command using the runners shell
       - name: Get PR variables
-        run: echo ${{ github.event.pull_request.title  }} ${{ github.event.pull_request.description  }}
+        run: echo ${{ github.event.pull_request.title }} - ${{ github.event.pull_request.body }}
