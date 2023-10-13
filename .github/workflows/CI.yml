@@ -20,38 +20,5 @@ jobs:
             # Get pull request description
             var body = context.payload.pull_request.body
 
-            # If `body` exists, check for conditions
-            # related to being from a contributor
-            if(body) {
-              var isContribution = body.contains('New Submission')
-              var incompleteGuidelines = body.contains('[]')
-            }
-
-            if(isContribution) {
-              # Create comment
-              github.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: msg
-              })
-
-              # Add 'new submission' label
-              github.issues.addLabels({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                labels: ['new submission']
-              })
-
-              # If missed checking guidelines,
-              # add 'invalid' label
-              if(incompleteGuidelines) {
-                github.issues.addLabels({
-                  issue_number: context.issue.number,
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  labels: ['invalid']
-                })
-              }
-            }
+            echo body
+            
