@@ -11,7 +11,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            # Create comment body as Markdown
+            # Create comment body as Markdown test
 
             var msg = `👋 Thanks for participating! I will review as soon as possible, usually within a few hours.
 
